@@ -294,7 +294,14 @@ function initStaticPages() {
   bindActionButtons();
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+export async function bootstrap() {
+  try {
+    const products = await fetchProducts();
+    console.log(products); // 👈 prueba de integracion: muestra productos en consola
+  } catch (e) {
+    console.error('Error fetching products in bootstrap()', e);
+  }
+
   const page = document.body.dataset.page;
 
   initStaticPages();
@@ -313,4 +320,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (page === "admin") {
     await initAdminPage();
   }
-});
+}
+
+// Auto-bootstrap when module is loaded normally
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootstrap);
+} else {
+  void bootstrap();
+}

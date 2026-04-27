@@ -1,6 +1,11 @@
 // Simula un backend de productos con fetch y persistencia en sessionStorage.
 const PRODUCTS_KEY = "gamehub-products";
 
+// Permite configurar la URL del backend desde la página (por ejemplo GitHub Pages -> Render)
+const BASE_API = (typeof window !== 'undefined' && window.BACKEND_URL)
+  ? String(window.BACKEND_URL).replace(/\/$/, '')
+  : '';
+
 const fallbackProducts = [
   {
     id: "1",
@@ -83,7 +88,7 @@ export async function fetchProducts() {
   ensureProductSeed();
 
   try {
-    const response = await fetch("https://gamehub-p9id.onrender.com/api/products");
+    const response = await fetch(`${BASE_API}/api/products`);
     if (!response.ok) {
       throw new Error("No se pudo obtener /api/products");
     }
@@ -120,7 +125,7 @@ export async function createProduct(product) {
   };
 
   try {
-    const response = await fetch("/api/products", {
+    const response = await fetch(`${BASE_API}/api/products`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-auth": "admin" },
       body: JSON.stringify(payload),
@@ -168,7 +173,7 @@ export async function updateProduct(productId, updates) {
   };
 
   try {
-    const response = await fetch(`/api/products/${productId}`, {
+    const response = await fetch(`${BASE_API}/api/products/${productId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json", "x-auth": "admin" },
       body: JSON.stringify(payload),
@@ -211,7 +216,7 @@ export async function deleteProduct(productId) {
   const products = ensureProductSeed();
 
   try {
-    const response = await fetch(`/api/products/${productId}`, {
+    const response = await fetch(`${BASE_API}/api/products/${productId}`, {
       method: "DELETE",
       headers: { "x-auth": "admin" },
     });
@@ -229,6 +234,3 @@ export async function deleteProduct(productId) {
     return newProducts;
   }
 }
-
-const cors = require("cors");
-app.use(cors());

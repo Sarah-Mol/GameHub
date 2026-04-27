@@ -1,0 +1,39 @@
+:root {
+  --brand: #0e1b2a;
+  --muted: #6c757d;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.hero-carousel-image {
+  height: 360px;
+  object-fit: cover;
+}
+
+.product-card-image {
+  height: 200px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.cart-product-image,
+.admin-product-image {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.empty-state {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.feedback-sticky {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 999;
+}

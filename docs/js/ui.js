@@ -103,20 +103,7 @@ export function renderCart(cart, container, editingItems = {}) {
 
           <div class="d-flex align-items-center ms-3 gap-2 flex-wrap">
             ${
-              isEditing
-                ? `
-              <button class="btn btn-dark btn-sm" type="button" data-confirm-id="${item.id}">
-                Confirmar
-              </button>
-              <button class="btn btn-outline-secondary btn-sm" type="button" data-cancel-id="${item.id}">
-                Cancelar
-              </button>
-            `
-                : `
-              <button class="btn btn-outline-dark btn-sm" type="button" data-edit-id="${item.id}">
-                Editar
-              </button>
-            `
+              "" /* template literal placeholder, content generated below */
             }
             <button
               class="btn btn-outline-danger btn-sm"

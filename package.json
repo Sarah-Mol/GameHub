@@ -1,0 +1,11 @@
+{
+  "name": "practica4",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node Backend/server.js"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
