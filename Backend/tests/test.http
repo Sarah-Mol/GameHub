@@ -1,0 +1,125 @@
+@host = http://localhost:3100
+
+### Raíz
+GET {{host}}/
+
+### Listar productos (sin admin)
+GET {{host}}/api/products
+
+### Listar productos (con admin - incluye stock)
+GET {{host}}/api/products
+x-auth: admin
+
+### Filtrar por rango de precio
+GET {{host}}/api/products?min=10&max=50
+
+### Crear producto (admin)
+# @name createProduct
+POST {{host}}/api/products
+x-auth: admin
+Content-Type: application/json
+
+{
+    "imageUrl": "https://example.com/manzana.jpg",
+    "title": "Manzana",
+    "description": "Fruta fresca",
+    "unit": "kg",
+    "category": "frutas",
+    "pricePerUnit": 25.0,
+    "stock": 100
+}
+
+### Obtener producto por ID (existente)
+GET {{host}}/api/products/{{createProduct.response.body.$.product.id}}
+
+### Obtener producto por ID (no existente)
+GET {{host}}/api/products/NO_EXISTE
+
+### Crear producto (faltan campos)
+POST {{host}}/api/products
+x-auth: admin
+Content-Type: application/json
+
+{
+    "title": "Producto incompleto"
+}
+
+### Crear producto (sin admin)
+POST {{host}}/api/products
+Content-Type: application/json
+
+{
+    "imageUrl": "https://example.com/test.jpg",
+    "title": "Test",
+    "description": "Test",
+    "unit": "pz",
+    "category": "test",
+    "pricePerUnit": 10,
+    "stock": 5
+}
+
+### Actualizar producto
+PUT {{host}}/api/products/{{createProduct.response.body.$.product.id}}
+x-auth: admin
+Content-Type: application/json
+
+{
+    "imageUrl": "https://example.com/manzana.jpg",
+    "title": "Manzana Roja",
+    "description": "Fruta fresca premium",
+    "unit": "kg",
+    "category": "frutas",
+    "pricePerUnit": 30.0,
+    "stock": 80
+}
+
+### Actualizar producto (no existe)
+PUT {{host}}/api/products/NO_EXISTE
+x-auth: admin
+Content-Type: application/json
+
+{
+    "imageUrl": "https://example.com/test.jpg",
+    "title": "Test",
+    "description": "Test",
+    "unit": "pz",
+    "category": "test",
+    "pricePerUnit": 10,
+    "stock": 5
+}
+
+### Eliminar producto
+DELETE {{host}}/api/products/{{createProduct.response.body.$.product.id}}
+x-auth: admin
+
+### Eliminar producto (no existe)
+DELETE {{host}}/api/products/NO_EXISTE
+x-auth: admin
+
+### Agregar al carrito
+POST {{host}}/api/products/cart
+x-user: juan
+Content-Type: application/json
+
+["{{createProduct.response.body.$.product.id}}"]
+
+### Agregar al carrito (no es array)
+POST {{host}}/api/products/cart
+x-user: juan
+Content-Type: application/json
+
+{"id": "no_es_array"}
+
+### Agregar al carrito (producto no existe)
+POST {{host}}/api/products/cart
+x-user: juan
+Content-Type: application/json
+
+["id_inexistente"]
+
+### Ver carrito
+GET {{host}}/api/products/cart
+x-user: juan
+
+### Ver carrito (sin usuario)
+GET {{host}}/api/products/cart

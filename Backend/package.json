@@ -1,0 +1,13 @@
+{
+  "name": "practica3",
+  "version": "1.0.0",
+  "description": "REST API para e-commerce",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1",
+    "shortid": "^2.2.16"
+  }
+}

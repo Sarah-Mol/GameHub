@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "title": "PlayStation 5",
+    "description": "Consola PlayStation 5",
+    "unit": "unidad",
+    "category": "consolas",
+    "pricePerUnit": 499.99,
+    "stock": 15,
+    "imageUrl": "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$"
+  },
+  {
+    "id": "2",
+    "title": "Xbox Series X",
+    "description": "Consola Xbox Series X",
+    "unit": "unidad",
+    "category": "consolas",
+    "pricePerUnit": 499.99,
+    "stock": 12,
+    "imageUrl": "https://cms-assets.xboxservices.com/assets/f0/8d/f08dfa50-f2ef-4873-bc8f-bcb6c34e48c0.png?n=642227_Hero-Gallery-0_C2_857x676.png"
+  },
+  {
+    "id": "3",
+    "title": "Nintendo Switch OLED",
+    "description": "Nintendo Switch OLED",
+    "unit": "unidad",
+    "category": "consolas",
+    "pricePerUnit": 349.99,
+    "stock": 20,
+    "imageUrl": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_500/ncom/en_US/switch/videos/heg001-07060600/posters/oled-model"
+  },
+  {
+    "id": "4",
+    "title": "SNES Classic Edition",
+    "description": "SNES Classic Edition",
+    "unit": "unidad",
+    "category": "retro",
+    "pricePerUnit": 129.99,
+    "stock": 8,
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Nintendo_Classic_Mini_Super_Nintendo_Entertainment_System_%28enhanced_image%29.jpg"
+  },
+  {
+    "id": "5",
+    "title": "PlayStation 5 Digital Edition",
+    "description": "PS5 Digital Edition",
+    "unit": "unidad",
+    "category": "consolas",
+    "pricePerUnit": 399.99,
+    "stock": 10,
+    "imageUrl": "https://media.direct.playstation.com/is/image/psdglobal/PS5-Digital-Model-Slim-Hero-1"
+  },
+  {
+    "id": "6",
+    "title": "Xbox Series S 1TB",
+    "description": "Xbox Series S 1TB",
+    "unit": "unidad",
+    "category": "consolas",
+    "pricePerUnit": 349.99,
+    "stock": 18,
+    "imageUrl": "https://freemans.scene7.com/is/image/OttoUK/466w/xbox-series-s-console---1tb-white~66K104FRSP.jpg"
+  },
+  {
+    "id": "7",
+    "title": "Nintendo Switch Lite",
+    "description": "Nintendo Switch Lite",
+    "unit": "unidad",
+    "category": "consolas",
+    "pricePerUnit": 199.99,
+    "stock": 25,
+    "imageUrl": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/en_US/products/hardware/nintendo-switch-lite-gray/110672-nintendo-switch-lite-gray-front-1200x675"
+  },
+  {
+    "id": "8",
+    "title": "Sega Genesis Mini",
+    "description": "Sega Genesis Mini",
+    "unit": "unidad",
+    "category": "retro",
+    "pricePerUnit": 79.99,
+    "stock": 7,
+    "imageUrl": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/15996852/a02kz8aey4wczznpm49r.jpg?quality=90&strip=all&crop=0,4.2595769010863,100,91.480846197827"
+  }
+]

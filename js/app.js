@@ -90,8 +90,8 @@ async function initHomePage() {
       return;
     }
 
-    const productId = Number(button.dataset.addToCart);
-    const selectedProduct = products.find((product) => product.id === productId);
+    const productId = button.dataset.addToCart;
+    const selectedProduct = products.find((product) => String(product.id) === productId);
 
     if (!selectedProduct) {
       return;
@@ -116,7 +116,7 @@ function initCartPage() {
   const redrawCart = () => {
     const cart = getCart();
     Object.keys(cartDrafts).forEach((productId) => {
-      if (!cart.find((item) => item.id === Number(productId))) {
+      if (!cart.find((item) => String(item.id) === productId)) {
         delete cartDrafts[productId];
       }
     });
@@ -133,8 +133,8 @@ function initCartPage() {
     const removeButton = event.target.closest("[data-remove-id]");
 
     if (editButton) {
-      const productId = Number(editButton.dataset.editId);
-      const item = getCart().find((product) => product.id === productId);
+      const productId = editButton.dataset.editId;
+      const item = getCart().find((product) => String(product.id) === productId);
       if (item) {
         cartDrafts[productId] = { quantity: item.quantity };
         redrawCart();
@@ -143,7 +143,7 @@ function initCartPage() {
     }
 
     if (increaseButton) {
-      const productId = Number(increaseButton.dataset.increaseId);
+      const productId = increaseButton.dataset.increaseId;
       if (cartDrafts[productId]) {
         cartDrafts[productId].quantity += 1;
         redrawCart();
@@ -152,7 +152,7 @@ function initCartPage() {
     }
 
     if (decreaseButton) {
-      const productId = Number(decreaseButton.dataset.decreaseId);
+      const productId = decreaseButton.dataset.decreaseId;
       if (cartDrafts[productId] && cartDrafts[productId].quantity > 1) {
         cartDrafts[productId].quantity -= 1;
         redrawCart();
@@ -161,7 +161,7 @@ function initCartPage() {
     }
 
     if (confirmButton) {
-      const productId = Number(confirmButton.dataset.confirmId);
+      const productId = confirmButton.dataset.confirmId;
       if (cartDrafts[productId]) {
         updateQuantity(productId, cartDrafts[productId].quantity);
         delete cartDrafts[productId];
@@ -172,7 +172,7 @@ function initCartPage() {
     }
 
     if (cancelButton) {
-      const productId = Number(cancelButton.dataset.cancelId);
+      const productId = cancelButton.dataset.cancelId;
       delete cartDrafts[productId];
       redrawCart();
       showFeedback("Edicion cancelada.", "secondary");
@@ -180,7 +180,7 @@ function initCartPage() {
     }
 
     if (removeButton) {
-      const productId = Number(removeButton.dataset.removeId);
+      const productId = removeButton.dataset.removeId;
       delete cartDrafts[productId];
       removeFromCart(productId);
       redrawCart();
@@ -194,7 +194,7 @@ function initCartPage() {
       return;
     }
 
-    const productId = Number(input.dataset.quantityId);
+    const productId = input.dataset.quantityId;
     if (cartDrafts[productId]) {
       cartDrafts[productId].quantity = Math.max(1, Number(input.value) || 1);
       redrawCart();
@@ -246,7 +246,7 @@ async function initAdminPage() {
     };
 
     if (form.elements.productId.value) {
-      await updateProduct(Number(form.elements.productId.value), payload);
+      await updateProduct(form.elements.productId.value, payload);
       showFeedback("Producto actualizado correctamente.", "success");
     } else {
       await createProduct(payload);
@@ -268,9 +268,7 @@ async function initAdminPage() {
     const products = await fetchProducts();
 
     if (editButton) {
-      const product = products.find(
-        (item) => item.id === Number(editButton.dataset.adminEdit),
-      );
+      const product = products.find((item) => String(item.id) === editButton.dataset.adminEdit);
       if (product) {
         fillAdminForm(form, product);
         showFeedback("Producto cargado en el formulario para edicion.", "info");
@@ -279,7 +277,7 @@ async function initAdminPage() {
     }
 
     if (deleteButton) {
-      await deleteProduct(Number(deleteButton.dataset.adminDelete));
+      await deleteProduct(deleteButton.dataset.adminDelete);
       showFeedback("Producto eliminado correctamente.", "warning");
       resetForm();
       await drawProducts();
