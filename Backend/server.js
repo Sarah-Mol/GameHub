@@ -14,7 +14,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'Frontend', 'index.html'));
 });
 
-const PORT = 3100;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en puerto ${PORT}`);
+const PORT = process.env.PORT || 3100;
+const server = app.listen(PORT, () => {
+    const actualPort = server.address().port;
+    console.log(`Servidor corriendo en puerto ${actualPort}`);
 });
