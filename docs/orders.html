@@ -47,10 +47,24 @@
 
           <ul class="navbar-nav me-3">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Iniciar sesion</a>
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                Iniciar sesion
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Registrarse</a>
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#registerModal"
+              >
+                Registrarse
+              </a>
             </li>
           </ul>
 
@@ -217,6 +231,217 @@
         <a href="index.html" class="btn btn-dark btn-lg">
           <i class="fa-solid fa-house me-2"></i>Volver al inicio
         </a>
+      </div>
+    </div>
+
+    <!-- Login modal (copied from index.html) -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Iniciar sesion</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" novalidate>
+              <div class="form-group mb-3">
+                <label for="loginEmail" class="form-label">Correo electronico</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"
+                    ><i class="fa-solid fa-envelope text-muted"></i
+                  ></span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="loginEmail"
+                    placeholder="correo@ejemplo.com"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Por favor ingresa un correo valido
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="loginPassword" class="form-label">Contrasena</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"
+                    ><i class="fa-solid fa-lock text-muted"></i
+                  ></span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="loginPassword"
+                    placeholder="Contrasena"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Por favor ingresa tu contrasena
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark px-5">
+                  Ingresar
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <p class="mb-0">
+              No tienes cuenta?
+              <a
+                href="#"
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#registerModal"
+                class="text-decoration-none fw-bold text-dark"
+                >Registrate aqui</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register modal (copied from index.html) -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Crear Cuenta</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" novalidate>
+              <div class="row mb-3">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="registerName" class="form-label">Nombre</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"
+                        ><i class="fa-solid fa-user text-muted"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="registerName"
+                        placeholder="Nombre"
+                        required
+                        pattern="[A-Za-z\s]+"
+                      />
+                      <div class="invalid-feedback">Solo letras permitidas</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="registerLastName" class="form-label">Apellido</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"
+                        ><i class="fa-solid fa-user text-muted"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="registerLastName"
+                        placeholder="Apellido"
+                        required
+                        pattern="[A-Za-z\s]+"
+                      />
+                      <div class="invalid-feedback">Solo letras permitidas</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="registerEmail" class="form-label">Correo electronico</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"
+                    ><i class="fa-solid fa-envelope text-muted"></i
+                  ></span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="registerEmail"
+                    placeholder="correo@ejemplo.com"
+                    required
+                  />
+                  <div class="invalid-feedback">Correo invalido</div>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="registerPassword" class="form-label">Contrasena</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"
+                    ><i class="fa-solid fa-lock text-muted"></i
+                  ></span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="registerPassword"
+                    placeholder="Minimo 6 caracteres"
+                    required
+                    pattern="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                  />
+                  <div class="invalid-feedback">
+                    Min 6 caracteres, mayuscula, minuscula y numero
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="registerConfirmPassword" class="form-label">Confirmar Contrasena</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"
+                    ><i class="fa-solid fa-lock text-muted"></i
+                  ></span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="registerConfirmPassword"
+                    placeholder="Repite la contrasena"
+                    required
+                  />
+                  <div class="invalid-feedback">Confirma tu contrasena</div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark px-5">
+                  Registrarse
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <p class="mb-0">
+              Ya tienes cuenta?
+              <a
+                href="#"
+                data-bs-dismiss="modal"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                class="text-decoration-none fw-bold text-dark"
+                >Inicia sesion aqui</a
+              >
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
