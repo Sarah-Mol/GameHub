@@ -732,17 +732,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      (async () => {
-        try {
-          const r = await fetch('./backend.url');
-          if (r.ok) {
-            const text = (await r.text()).trim();
-            if (text) window.BACKEND_URL = text;
-          }
-        } catch (e) {}
-        const m = await import('./js/app.js');
-        if (m && typeof m.bootstrap === 'function') m.bootstrap();
-      })();
-    </script>
+  window.BACKEND_URL = "https://gamehub-p9id.onrender.com";
+
+  (async () => {
+    const m = await import('./js/app.js');
+    if (m && typeof m.bootstrap === 'function') m.bootstrap();
+  })();
+</script>
   </body>
 </html>
