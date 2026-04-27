@@ -83,7 +83,7 @@ export async function fetchProducts() {
   ensureProductSeed();
 
   try {
-    const response = await fetch("/api/products");
+    const response = await fetch("https://gamehub-p9id.onrender.com/api/products");
     if (!response.ok) {
       throw new Error("No se pudo obtener /api/products");
     }
@@ -229,3 +229,6 @@ export async function deleteProduct(productId) {
     return newProducts;
   }
 }
+
+const cors = require("cors");
+app.use(cors());
