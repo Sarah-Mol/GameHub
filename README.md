@@ -18,15 +18,3 @@ Despliegue en Render (recomendado para backend + frontend conjunto)
 Despliegue en GitHub Pages (sitio estático)
 1. En GitHub → Settings → Pages: Source → branch `main` (o tu rama) y carpeta `/docs`.
 2. IMPORTANTE: una vez que despliegues el backend en Render y obtengas la URL (por ejemplo `https://mi-backend.onrender.com`), actualiza el archivo `docs/backend.url` con esa URL y haz push. GitHub Pages leerá ese archivo para configurar `window.BACKEND_URL`.
-
-Probar localmente
-- Instala dependencias del backend: `npm install --prefix Backend`
-- Ejecuta el backend (que servirá el frontend): `npm start`
-- Abre `http://localhost:3100`
-
-Cambios realizados
-- `Backend/server.js` actualizado para servir `docs/` y ofrecer `/backend.url` dinámico.
-- Archivo `package.json` añadido en la raíz para facilitar despliegues en Render.
-- Archivos frontend duplicados en la raíz y `Frontend/` han sido eliminados; la ubicación canónica es `docs/`.
-
-Si prefieres que el frontend permanezca en la raíz en lugar de `docs/`, puedo revertir estos cambios o moverlo según prefieras.
